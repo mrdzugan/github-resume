@@ -1,11 +1,31 @@
-import './App.scss';
+import React from 'react';
+import {
+    createBrowserRouter,
+    RouterProvider,
+} from 'react-router-dom';
+import Home from './pages/Home/Home';
+import Resume from './pages/Resume/Resume';
 
 function App() {
-  return (
-    <div>
-      Here will be resume generator application
-    </div>
-  );
+
+    const router = createBrowserRouter([
+        {
+            path: '/',
+            element: <Home />,
+        },
+        {
+            path: '/:username',
+            element: <Resume />,
+        },
+        {
+            path: '*',
+            element: <span>empty</span>,
+        },
+    ]);
+
+    return (
+        <RouterProvider router={router} />
+    );
 }
 
 export default App;
