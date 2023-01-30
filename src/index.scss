@@ -6,7 +6,19 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+
   width: 100vw;
   height: 100vh;
+
   margin: 0;
+  padding: 50px;
+
+  box-sizing: border-box;
+  -moz-box-sizing:  border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+
+  #root {
+    height: 100%;
+  }
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
     createBrowserRouter,
     RouterProvider,
@@ -8,7 +8,7 @@ import Resume from './pages/Resume/Resume';
 
 function App() {
 
-    const router = createBrowserRouter([
+    const router = useMemo(() => createBrowserRouter([
         {
             path: '/',
             element: <Home />,
@@ -21,7 +21,7 @@ function App() {
             path: '*',
             element: <span>empty</span>,
         },
-    ]);
+    ]), []);
 
     return (
         <RouterProvider router={router} />
