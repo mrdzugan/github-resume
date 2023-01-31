@@ -24,7 +24,7 @@ const LanguagesChart = ({ languages = [] }) => {
 
     return (
         <>
-            <PieChart data={chartData} animate />
+            <PieChart data={chartData} animate viewBoxSize={[150, 150]} center={[75, 75]} />
             <div className="chart-info-container">
                 {chartData.map((item) => (
                     <Badge

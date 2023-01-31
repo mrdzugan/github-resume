@@ -6,9 +6,9 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 
   width: 100vw;
-  height: 100vh;
 
   margin: 0;
   padding: 50px;
@@ -20,5 +20,9 @@ body {
 
   #root {
     height: 100%;
+  }
+
+  @media(max-width: 576px) {
+    padding: 10px;
   }
 }
