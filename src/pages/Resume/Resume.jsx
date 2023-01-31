@@ -1,11 +1,12 @@
 import React, { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import useGetQuery from '../../api/useGetQuery';
-import { Descriptions, Grid } from 'antd';
+import { Descriptions, Grid, Spin } from 'antd';
 import CenteredCard from '../../components/CenteredCard/CenteredCard';
 import dayjs from 'dayjs';
 import LanguagesChart from '../../components/LanguagesChart/LanguagesChart';
 import RepositoriesTimeline from '../../components/RepositoriesTimeline/RepositoriesTimeline';
+import ErrorPage from '../ErrorPage/ErrorPage';
 
 const { useBreakpoint } = Grid;
 
@@ -31,11 +32,20 @@ const Resume = () => {
     );
 
     if (userLoading || repositoriesLoading) {
-        return <span>Loading...</span>
+        return (
+            <Spin size="large" />
+        );
     }
 
-    if (userError || repositoriesError) {
-        return JSON.stringify(userError || repositoriesError);
+    const error = userError || repositoriesError;
+
+    if (error) {
+        return (
+            <ErrorPage
+                title={error.response.status}
+                text={error.response.status === 404 ? 'User not found' : 'An error has occured'}
+            />
+        );
     }
 
     return (
